@@ -6,7 +6,6 @@ pytesseract.pytesseract.tesseract_cmd='C:\\Program Files\\Tesseract-OCR\\tessera
 # you need to install ocr and give path in program
 try:
     image='text.png'
-    print('Editing image for better OCR result..........')
     img = cv2.imread(image)  # reading image
     img = cv2.resize(img, None, fx=1.5, fy=1.5, interpolation=cv2.INTER_CUBIC)
     kernel = np.ones((1, 1), np.uint8)
@@ -15,10 +14,8 @@ try:
     new_image = 'edited' + '_' + image  # new image which we save during procedure
     cv2.imwrite(new_image, img)  # Save a new edited image
     read = pytesseract.image_to_string(new_image)  # reading from new generated image
-    # print(read)  # print result
-    with open("Output.txt", "w") as text_file:
+    with open("Output.txt", "w") as text_file:  # Output.txt is automatically created with text in Image
         text_file.write(read)
 
 except Exception as e:
-    print('please provide proper name of the image')
     print(e)
