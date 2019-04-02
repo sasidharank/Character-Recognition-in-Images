@@ -5,7 +5,7 @@ import os    # for remove image file which we edit during procedure
 pytesseract.pytesseract.tesseract_cmd='C:\\Program Files\\Tesseract-OCR\\tesseract.exe'
 # you need to install ocr and give path in program
 try:
-    image='text.png'
+    image='# your path to image'
     img = cv2.imread(image)  # reading image
     img = cv2.resize(img, None, fx=1.5, fy=1.5, interpolation=cv2.INTER_CUBIC)
     kernel = np.ones((1, 1), np.uint8)
